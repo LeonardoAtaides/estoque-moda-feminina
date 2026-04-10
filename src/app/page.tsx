@@ -134,7 +134,7 @@ export default function ProductsPage() {
     fetchValue();
   };
 
-  // DELETE (mantido simples)
+  // DELETE 
   const handleDelete = async (id: string) => {
     await fetch("/api/products", {
       method: "DELETE",
