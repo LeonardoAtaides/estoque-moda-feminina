@@ -42,6 +42,7 @@ export default function ProductsPage() {
   const [editId, setEditId] = useState<string | null>(null);
 
   const [productCount, setProductCount] = useState(0);
+  const [productValue, setProductValue] = useState(0);
 
   // COUNT
   const fetchCount = async () => {
@@ -49,6 +50,14 @@ export default function ProductsPage() {
     if (!res.ok) return;
     const data = await res.json();
     setProductCount(data.count);
+  };
+
+    // VALUE
+  const fetchValue = async () => {
+    const res = await fetch("/api/products/value");
+    if (!res.ok) return;
+    const data = await res.json();
+    setProductValue(data.totalPriceSum);
   };
 
   // PRODUCTS
@@ -80,6 +89,7 @@ export default function ProductsPage() {
     fetchSizes();
     fetchCategories();
     fetchCount();
+    fetchValue();
   }, []);
 
   // CREATE / UPDATE
@@ -121,6 +131,7 @@ export default function ProductsPage() {
 
     fetchProducts();
     fetchCount();
+    fetchValue();
   };
 
   // DELETE (mantido simples)
@@ -135,6 +146,7 @@ export default function ProductsPage() {
 
     fetchProducts();
     fetchCount();
+    fetchValue();
   };
 
   // EDIT
@@ -167,6 +179,16 @@ export default function ProductsPage() {
         </div>
       </div>
 
+      {/* COUNT */}
+      <div className="max-w-4xl mx-auto mb-6 bg-gray-900 p-6 rounded flex justify-between">
+        <div>
+          <h2 className="font-bold">Valor em Produtos</h2>
+          <p className="text-gray-400">Ativos no sistema</p>
+        </div>
+        <div className="text-3xl text-blue-400 font-bold">
+          {productValue}
+        </div>
+      </div>
       {/* FORM */}
       <form
         onSubmit={handleSubmit}
