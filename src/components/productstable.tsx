@@ -83,7 +83,7 @@ async function handleSave(form: any, id?: string) {
 
   return (
     <>
-    <div className="rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-950 ">
       <table className="w-full text-sm text-zinc-200">
         {/* HEADER */}
         <thead className="border-b border-zinc-800 bg-zinc-900/40 text-left text-zinc-400">
@@ -171,7 +171,7 @@ async function handleSave(form: any, id?: string) {
                 </button>
 
                 {openMenu === product.id && (
-                  <div className="absolute right-3 top-10 w-32 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg">
+                  <div className="absolute right-3 top-10 w-32 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg z-10">
                     <button
                     onClick={() => handleEdit(product)}
                     className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800">

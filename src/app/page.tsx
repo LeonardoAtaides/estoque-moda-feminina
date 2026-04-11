@@ -1,5 +1,6 @@
 "use client";
 
+import { ProductsTable } from "@/components/productstable";
 import { useEffect, useState } from "react";
 
 interface Size {
@@ -168,28 +169,12 @@ export default function ProductsPage() {
         CRUD de Produtos
       </h1>
 
-      {/* COUNT */}
-      <div className="max-w-4xl mx-auto mb-6 bg-gray-900 p-6 rounded flex justify-between">
-        <div>
-          <h2 className="font-bold">Total de Produtos</h2>
-          <p className="text-gray-400">Ativos no sistema</p>
-        </div>
-        <div className="text-3xl text-blue-400 font-bold">
-          {productCount}
-        </div>
-      </div>
 
-      {/* COUNT */}
-      <div className="max-w-4xl mx-auto mb-6 bg-gray-900 p-6 rounded flex justify-between">
-        <div>
-          <h2 className="font-bold">Valor em Produtos</h2>
-          <p className="text-gray-400">Ativos no sistema</p>
-        </div>
-        <div className="text-3xl text-blue-400 font-bold">
-          {productValue}
-        </div>
-      </div>
-      {/* FORM */}
+<ProductsTable />
+
+
+
+   
       <form
         onSubmit={handleSubmit}
         className="bg-gray-800 p-6 rounded max-w-2xl mx-auto mb-8 space-y-4"
@@ -223,7 +208,7 @@ export default function ProductsPage() {
             }
           />
 
-          {/* CATEGORY (AGORA CORRETO) */}
+     
           <select
             className="p-2 rounded text-black"
             value={categoryId}
@@ -237,7 +222,7 @@ export default function ProductsPage() {
             ))}
           </select>
 
-          {/* SIZE */}
+    
           <select
             className="p-2 rounded text-black"
             value={sizeId}
@@ -272,8 +257,9 @@ export default function ProductsPage() {
           {editId ? "Atualizar" : "Criar"}
         </button>
       </form>
+      
 
-      {/* LISTA */}
+      {/* LISTA 
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-4">
         {products.map((p) => (
           <div key={p.id} className="bg-gray-800 p-4 rounded">
@@ -306,7 +292,7 @@ export default function ProductsPage() {
             </div>
           </div>
         ))}
-      </div>
+      </div>*/}
     </div>
   );
 }
