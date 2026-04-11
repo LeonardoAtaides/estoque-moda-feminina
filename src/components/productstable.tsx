@@ -14,7 +14,12 @@ type Product = {
   category?: { id: string; name: string } | null
 }
 
-export function ProductsTable() {
+interface Props {
+  search: string
+  category: string
+}
+
+export function ProductsTable({ search, category }: Props) {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
@@ -81,6 +86,17 @@ async function handleSave(form: any, id?: string) {
     )
   }
 
+  const filteredProducts = products.filter((p) => {
+  const matchesSearch = p.name
+    ?.toLowerCase()
+    .includes(search.toLowerCase())
+
+  const matchesCategory =
+    !category || p.category?.id === category
+
+  return matchesSearch && matchesCategory
+})
+
   return (
     <>
     <div className="rounded-xl border border-zinc-800 bg-zinc-950 ">
@@ -102,7 +118,7 @@ async function handleSave(form: any, id?: string) {
 
         {/* BODY */}
         <tbody>
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <tr
               key={product.id}
               className="border-b border-zinc-800 hover:bg-zinc-900/40 transition"

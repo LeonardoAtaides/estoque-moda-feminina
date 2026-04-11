@@ -60,18 +60,18 @@ export function CardsValues() {
       {cards.map((card) => (
         <div
           key={card.title}
-          className="rounded-lg border bg-white p-4 shadow-sm"
+          className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4 shadow-sm"
         >
           <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500">{card.title}</span>
-            <card.icon className="h-4 w-4 text-gray-700" />
+            <span className="text-sm text-gray-300">{card.title}</span>
+            <card.icon className="h-4 w-4 text-[#00cf85]" />
           </div>
 
-          <div className="mt-3 text-2xl font-bold text-black">
+          <div className="mt-3 text-2xl font-bold text-white">
             {card.value}
           </div>
 
-          <p className="mt-1 text-xs text-gray-500">
+          <p className="mt-1 text-xs text-gray-300">
             {card.desc}
           </p>
         </div>

@@ -43,12 +43,12 @@ export function CategoriesTable() {
 
   if (loading) {
     return (
-      <div className="h-[300px] animate-pulse rounded-lg bg-gray-200" />
+      <div className="h-[300px] animate-pulse rounded-lg  bg-[#0f0f12]" />
     )
   }
 
   return (
-    <div className="rounded-lg border bg-white p-4">
+    <div className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4">
       <div className="mb-4">
         <h2 className="text-lg font-semibold">
           Produtos por Categoria
