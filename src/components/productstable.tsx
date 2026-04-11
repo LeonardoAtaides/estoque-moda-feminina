@@ -157,7 +157,7 @@ async function handleSave(form: any, id?: string) {
                     Ativo
                   </span>
                 ) : (
-                  <span className="rounded-full bg-zinc-700 px-2 py-1 text-xs text-zinc-300">
+                  <span className="rounded-full bg-red-500/20 px-2 py-1 text-xs text-zinc-300">
                     Inativo
                   </span>
                 )}

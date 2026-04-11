@@ -37,7 +37,7 @@ export default function ProductsPage() {
 
         <button
           onClick={() => setModalOpen(true)}
-          className="flex items-center gap-2 bg-[#00cf85] text-black px-4 py-2 rounded-md hover:opacity-90 transition"
+          className="flex items-center gap-2 bg-[#00cf85] text-white px-4 py-2 rounded-md hover:opacity-90 transition"
         >
           <Plus className="h-4 w-4 " />
           Novo Produto

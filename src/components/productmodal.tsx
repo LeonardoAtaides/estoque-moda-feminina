@@ -104,7 +104,7 @@ async function handleSubmit(e: React.FormEvent) {
 return (
   <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
     <div className="w-full max-w-lg">
-      <div className="bg-[#0B0F14] border border-white/10 rounded-2xl p-6 shadow-2xl">
+      <div className=" border-[#28292b] bg-[#0f0f12] border  rounded-2xl p-6 shadow-2xl">
 
         {/* HEADER */}
         <div className="flex justify-between items-start mb-6">
@@ -137,7 +137,7 @@ return (
             <input
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Vestido Floral Verão"
             />
           </div>
@@ -154,7 +154,7 @@ return (
               onChange={(e) =>
                 setForm({ ...form, price: Number(e.target.value) })
               }
-              className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="0,00"
             />
           </div>
@@ -171,7 +171,7 @@ return (
                 onChange={(e) =>
                   setForm({ ...form, sizeId: e.target.value })
                 }
-                className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               >
                 <option value="">Selecione</option>
                 {sizes.map((s) => (
@@ -192,7 +192,7 @@ return (
                 onChange={(e) =>
                   setForm({ ...form, categoryId: e.target.value })
                 }
-                className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               >
                 <option value="">Selecione</option>
                 {categories.map((c) => (
@@ -216,7 +216,7 @@ return (
               onChange={(e) =>
                 setForm({ ...form, quantity: Number(e.target.value) })
               }
-              className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -231,17 +231,14 @@ return (
               onChange={(e) =>
                 setForm({ ...form, description: e.target.value })
               }
-              className="w-full bg-[#11161C] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
 
           {/* SWITCH ATIVO */}
-          <div className="flex items-center justify-between bg-[#11161C] border border-white/10 rounded-xl px-4 py-3">
+          <div className="flex items-center justify-between bg-[#121214] border border-white/10 rounded-xl px-4 py-3">
             <div>
               <p className="text-sm text-white">Produto Ativo</p>
-              <p className="text-xs text-gray-400">
-                Produtos ativos aparecem no estoque
-              </p>
             </div>
 
             <button
@@ -266,14 +263,14 @@ return (
             <button
               type="button"
               onClick={() => onOpenChange(false)}
-              className="px-4 py-2 rounded-lg border border-white/10 text-gray-300 hover:bg-white/5 transition"
+              className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-400 transition"
             >
               Cancelar
             </button>
 
             <button
               type="submit"
-              className="px-4 py-2 rounded-lg bg-green-500 text-black font-medium hover:bg-green-400 transition"
+              className="px-4 py-2 rounded-lg bg-green-500 text-white font-medium hover:bg-green-400 transition"
             >
               {isEditing ? "Salvar Alterações" : "Criar Produto"}
             </button>
