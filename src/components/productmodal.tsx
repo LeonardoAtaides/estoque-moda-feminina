@@ -150,6 +150,7 @@ return (
             <input
               type="number"
               step="0.01"
+              min="0.01"
               value={form.price || ""}
               onChange={(e) =>
                 
@@ -213,6 +214,7 @@ return (
             </label>
             <input
               type="number"
+               min="0"
               value={form.quantity || ""}
               onChange={(e) =>
                 setForm({ ...form, quantity: Number(e.target.value) })
