@@ -1,7 +1,72 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Package, DollarSign, ShoppingBag, TrendingUp } from "lucide-react"
+import { Package, DollarSign, ShoppingBag } from "lucide-react"
+
+const Counter = ({ value }: { value: number }) => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startValue = 0
+    let animationFrame: number
+
+    const duration = 2000
+    const increment = value / (duration / 16)
+
+    const animate = () => {
+      startValue += increment
+
+      if (startValue < value) {
+        setCount(Math.floor(startValue))
+        animationFrame = requestAnimationFrame(animate)
+      } else {
+        setCount(value)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationFrame)
+  }, [value])
+
+  return <span>{count}</span>
+}
+
+const CounterMoney = ({ value }: { value: number }) => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startValue = 0
+    let animationFrame: number
+
+    const duration = 2000
+    const increment = value / (duration / 16)
+
+    const animate = () => {
+      startValue += increment
+
+      if (startValue < value) {
+        setCount(startValue)
+        animationFrame = requestAnimationFrame(animate)
+      } else {
+        setCount(value)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationFrame)
+  }, [value])
+
+  return (
+    <span>
+      {count.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}
+    </span>
+  )
+}
 
 interface Stats {
   activeCount: number
@@ -28,30 +93,27 @@ export function CardsValues() {
     loadStats()
   }, [])
 
-  const formatBRL = (value: number) =>
-    value.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    })
-
   const cards = [
     {
       title: "Produtos Ativos",
       value: stats.activeCount,
       icon: Package,
       desc: `${stats.totalCount} total`,
+      type: "number",
     },
     {
       title: "Valor Total",
-      value: formatBRL(stats.totalValue),
+      value: stats.totalValue,
       icon: DollarSign,
       desc: "Somente ativos",
+      type: "money",
     },
     {
       title: "Itens em Estoque",
       value: stats.totalQuantity,
       icon: ShoppingBag,
       desc: "Quantidade total",
+      type: "number",
     },
   ]
 
@@ -68,7 +130,11 @@ export function CardsValues() {
           </div>
 
           <div className="mt-3 text-2xl font-bold text-white">
-            {card.value}
+            {card.type === "money" ? (
+              <CounterMoney value={card.value} />
+            ) : (
+              <Counter value={card.value} />
+            )}
           </div>
 
           <p className="mt-1 text-xs text-gray-300">
