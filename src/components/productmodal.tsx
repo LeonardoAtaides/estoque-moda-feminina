@@ -150,8 +150,9 @@ return (
             <input
               type="number"
               step="0.01"
-              value={form.price}
+              value={form.price || ""}
               onChange={(e) =>
+                
                 setForm({ ...form, price: Number(e.target.value) })
               }
               className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -212,7 +213,7 @@ return (
             </label>
             <input
               type="number"
-              value={form.quantity}
+              value={form.quantity || ""}
               onChange={(e) =>
                 setForm({ ...form, quantity: Number(e.target.value) })
               }
