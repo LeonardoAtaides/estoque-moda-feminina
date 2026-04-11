@@ -1,8 +1,8 @@
 "use client"
-
+import { ProductModal } from "./productmodal"
 import { useEffect, useState } from "react"
 
-interface Product {
+type Product = {
   id: string
   name: string
   price: number
@@ -10,14 +10,15 @@ interface Product {
   description: string | null
   isActive: boolean
   createdAt: string
-  size?: { name: string } | null
-  category?: { name: string } | null
+  size?: { id: string; name: string } | null
+  category?: { id: string; name: string } | null
 }
 
 export function ProductsTable() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
-
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
 
   useEffect(() => {
@@ -42,6 +43,31 @@ export function ProductsTable() {
     setProducts((prev) => prev.filter((p) => p.id !== id))
   }
 
+  function handleEdit(product: Product) {
+  setSelectedProduct(product)
+  setModalOpen(true)
+}
+
+async function handleSave(form: any, id?: string) {
+  if (id) {
+    await fetch("/api/products", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id, ...form }),
+    })
+  } else {
+    await fetch("/api/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    })
+  }
+
+  const res = await fetch("/api/products")
+  const data = await res.json()
+  setProducts(data)
+}
+
   const formatDate = (date: string) =>
     new Intl.DateTimeFormat("pt-BR", {
       day: "2-digit",
@@ -56,6 +82,7 @@ export function ProductsTable() {
   }
 
   return (
+    <>
     <div className="rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden">
       <table className="w-full text-sm text-zinc-200">
         {/* HEADER */}
@@ -145,7 +172,9 @@ export function ProductsTable() {
 
                 {openMenu === product.id && (
                   <div className="absolute right-3 top-10 w-32 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg">
-                    <button className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800">
+                    <button
+                    onClick={() => handleEdit(product)}
+                    className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800">
                       Editar
                     </button>
 
@@ -163,5 +192,12 @@ export function ProductsTable() {
         </tbody>
       </table>
     </div>
-  )
-}
+<ProductModal
+  open={modalOpen}
+  onOpenChange={setModalOpen}
+  product={selectedProduct}
+  onSave={handleSave}
+/> 
+</>
+)
+}   
