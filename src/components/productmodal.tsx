@@ -48,7 +48,7 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
     categoryId: "",
   })
 
-  // 🔥 CARREGA SIZES E CATEGORIES DA API
+
   useEffect(() => {
     async function load() {
       const [sizesRes, categoriesRes] = await Promise.all([
@@ -63,8 +63,7 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
     load()
   }, [])
 
-  
-  // 🔥 PREENCHE NO EDIT
+
   useEffect(() => {
     if (product) {
       setForm({
@@ -99,14 +98,11 @@ async function handleSubmit(e: React.FormEvent) {
 
   if (!open) return null
 
-  if (!open) return null;
-
 return (
   <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
     <div className="w-full max-w-lg">
       <div className=" border-[#28292b] bg-[#0f0f12] border  rounded-2xl p-6 shadow-2xl">
 
-        {/* HEADER */}
         <div className="flex justify-between items-start mb-6">
           <div>
             <h2 className="text-xl font-semibold text-white">
@@ -129,7 +125,6 @@ return (
 
         <form onSubmit={handleSubmit} className="space-y-5">
 
-          {/* Nome */}
           <div>
             <label className="text-sm text-gray-300 mb-1 block">
               Nome do Produto
@@ -142,7 +137,6 @@ return (
             />
           </div>
 
-          {/* PREÇO */}
           <div>
             <label className="text-sm text-gray-300 mb-1 block">
               Preço (R$)
@@ -161,9 +155,7 @@ return (
             />
           </div>
 
-          {/* GRID 2 COLUNAS */}
           <div className="grid grid-cols-2 gap-4">
-            {/* TAMANHO */}
             <div>
               <label className="text-sm text-gray-300 mb-1 block">
                 Tamanho
@@ -184,7 +176,6 @@ return (
               </select>
             </div>
 
-            {/* CATEGORIA */}
             <div>
               <label className="text-sm text-gray-300 mb-1 block">
                 Categoria
@@ -206,8 +197,6 @@ return (
             </div>
           </div>
           
-
-          {/* QUANTIDADE */}
           <div>
             <label className="text-sm text-gray-300 mb-1 block">
               Quantidade
@@ -223,7 +212,6 @@ return (
             />
           </div>
 
-          {/* DESCRIÇÃO */}
           <div>
             <label className="text-sm text-gray-300 mb-1 block">
               Descrição
@@ -238,7 +226,6 @@ return (
             />
           </div>
 
-          {/* SWITCH ATIVO */}
           <div className="flex items-center justify-between bg-[#121214] border border-white/10 rounded-xl px-4 py-3">
             <div>
               <p className="text-sm text-white">Produto Ativo</p>
@@ -261,7 +248,6 @@ return (
             </button>
           </div>
 
-          {/* BOTÕES */}
           <div className="flex justify-end gap-3 pt-4">
             <button
               type="button"
