@@ -52,7 +52,7 @@ export function ProductsFilters({
           placeholder="Buscar produto..."
           value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-md bg-[#11161C] border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full pl-9 pr-3 py-2 rounded-md border-[#28292b] bg-[#0f0f12] border text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
 
@@ -61,7 +61,7 @@ export function ProductsFilters({
         <select
           value={category}
           onChange={(e) => onCategoryChange(e.target.value)}
-          className="w-[180px] px-3 py-2 rounded-md bg-[#11161C] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-[180px] px-3 py-2 rounded-md borderborder-[#28292b] bg-[#0f0f12] text-white focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           <option value="">Todas</option>
 
