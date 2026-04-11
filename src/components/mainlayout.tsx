@@ -18,7 +18,9 @@ export function MainLayout({ children }: MainLayoutProps) {
         </div>
 
         <footer className="flex justify-center items-center py-2 border-t border-white/10 text-sm text-[#00cf85]">
-          <p>StockFashion v1.0.0</p>
+          <p>StockFashion v1.0.0 — by <a href="https://www.ataidesdev.com.br" className="font-bold upper text-white" target="_blank">
+            Ataídes</a>
+          </p>
         </footer>
 
       </main>

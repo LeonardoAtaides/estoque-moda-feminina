@@ -137,7 +137,7 @@ return (
             <input
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
               placeholder="Vestido Floral Verão"
             />
           </div>
@@ -156,7 +156,7 @@ return (
                 
                 setForm({ ...form, price: Number(e.target.value) })
               }
-              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
               placeholder="0,00"
             />
           </div>
@@ -173,7 +173,7 @@ return (
                 onChange={(e) =>
                   setForm({ ...form, sizeId: e.target.value })
                 }
-                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
               >
                 <option value="">Selecione</option>
                 {sizes.map((s) => (
@@ -194,7 +194,7 @@ return (
                 onChange={(e) =>
                   setForm({ ...form, categoryId: e.target.value })
                 }
-                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
               >
                 <option value="">Selecione</option>
                 {categories.map((c) => (
@@ -219,7 +219,7 @@ return (
               onChange={(e) =>
                 setForm({ ...form, quantity: Number(e.target.value) })
               }
-              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
             />
           </div>
 
@@ -234,7 +234,7 @@ return (
               onChange={(e) =>
                 setForm({ ...form, description: e.target.value })
               }
-              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-[#121214] border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00cf85]"
             />
           </div>
 
@@ -250,7 +250,7 @@ return (
                 setForm({ ...form, isActive: !form.isActive })
               }
               className={`w-11 h-6 flex items-center rounded-full p-1 transition ${
-                form.isActive ? "bg-green-500" : "bg-gray-600"
+                form.isActive ? "bg-[#00cf85]" : "bg-gray-600"
               }`}
             >
               <div
