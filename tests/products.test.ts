@@ -1,18 +1,42 @@
-// tests/products.test.ts
+// ⚠️ MOCK TEM QUE VIR PRIMEIRO
+jest.mock("@/lib/prisma", () => ({
+  __esModule: true,
+  default: {
+    product: {
+      create: jest.fn(),
+    },
+  },
+}));
 
-import { GET } from "@/app/api/products/route"; // Importe diretamente a função GET
+import { POST } from "@/app/api/products/route";
+import prisma from "@/lib/prisma";
 
-describe("GET /api/products", () => {
-  it("should return 200 and an array", async () => {
-    // Chama diretamente a função GET
-    const res = await GET();
+describe("POST /api/products", () => {
+  it("deve criar um produto com sucesso", async () => {
 
+    // mock do retorno do banco
+    (prisma.product.create as jest.Mock).mockResolvedValue({
+      id: "1",
+      name: "Blusa",
+      price: 50,
+      quantity: 10,
+    });
+
+    // simulando request
+    const req = new Request("http://localhost", {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Blusa",
+        price: 50,
+        quantity: 10,
+      }),
+    });
+
+    const res = await POST(req);
     const data = await res.json();
 
-    // Verifica se o status é 200
-    expect(res.status).toBe(200);
-
-    // Verifica se a resposta é um array
-    expect(Array.isArray(data)).toBe(true);
+    // validações
+    expect(res.status).toBe(201);
+    expect(data.name).toBe("Blusa");
   });
 });
