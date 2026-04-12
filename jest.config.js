@@ -1,14 +1,14 @@
-const nextJest = require("next/jest")
+import nextJest from 'next/jest'
 
 const createJestConfig = nextJest({
-  dir: "./",
+  dir: './',
 })
 
 const customJestConfig = {
-  testEnvironment: "node",
+  testEnvironment: 'node',
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
 }
 
-module.exports = createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig)
