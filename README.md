@@ -25,6 +25,7 @@ A aplicação foi criada para **resolver esse problema**, trazendo mais:
 ---
 
 ## ⚙️ Instalação
+***para rodar está aplicação deve-se se obter node.js e MySql instalados em sua máquin a, passível de obter um software para gerenciar o banco de dados(Workbench e etc), apenas para cria-lo**
 
 ### 1. Clone o repositório
 
