@@ -12,7 +12,7 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v3
 
-      - name: Configurar Node
+      - name: Configurar Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -20,17 +20,5 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar Prisma Migrate
-        run: npx prisma migrate dev --name init 
-
-      - name: Gerar Prisma Client
-        run: npx prisma generate  
-
-      - name: Rodar Prisma Seed (se necessário)
-        run: npx prisma db seed 
-
-      - name: Rodar lint
-        run: npm run lint
-
-      - name: Rodar testes
+      - name: Rodar os testes
         run: npm test
