@@ -73,8 +73,8 @@ export default function ProductsPage() {
       <div className="space-y-6">
 
         {/* HEADER */}
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">Produtos</h1>
+        <div className="flex items-center justify-between mb-7 ">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground">Produtos</h1>
 
           <button
             onClick={() => setModalOpen(true)}
