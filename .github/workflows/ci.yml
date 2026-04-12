@@ -20,6 +20,9 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+      - name: Rodar Prisma Migrate
+        run: npx prisma migrate dev --name init --skip-seed  
+        
       - name: Rodar Prisma Generate
         run: npx prisma generate 
 
