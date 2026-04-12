@@ -1,35 +1,73 @@
 # 🛍️ StockFashion
 
-## Sobre o Projeto
-
-O **StockFashion** é uma aplicação web (desktop) desenvolvida com **Next.js**, **TypeScript** e **MySQL**, que permite ao usuário **criar, atualizar, deletar e visualizar produtos** dentro de um sistema de gerenciamento de estoque.
-
-O sistema conta com:
-
-* 📊 **Dashboard**: exibe dados e métricas sobre os produtos cadastrados
-* 📦 **Página de Produtos**: permite busca, filtros e gerenciamento completo (CRUD) de forma prática e intuitiva
+> Sistema de gerenciamento de estoque para moda feminina, focado em praticidade, organização e controle eficiente.
 
 ---
 
-## ❗ Problema
+## 📖 Sobre o Projeto
 
-O projeto foi desenvolvido para atender a necessidade de uma loja de moda feminina (a loja e da minha irmã) e não possuía um sistema de controle de estoque, realizando anotações manuais em papel.
+O **StockFashion** é uma aplicação web (desktop) desenvolvida com **Next.js**, **TypeScript** e **MySQL**, que permite gerenciar produtos de forma completa através de operações de **CRUD** (criar, visualizar, atualizar e deletar).
 
-Isso dificultava a organização e o controle dos produtos.
-A aplicação foi criada para **resolver esse problema**, trazendo mais:
-
-* organização
-* praticidade
-* controle eficiente do estoque
+A aplicação foi pensada para ser **simples, intuitiva e funcional**, atendendo pequenas lojas que precisam de um controle eficiente sem complexidade.
 
 ---
 
-## ⚙️ Instalação
-**⚠️ Para rodar está aplicação deve-se se obter node.js e MySql instalados em sua máquina, passível de obter um software para gerenciar o banco de dados(Workbench e etc), apenas para cria-lo**
+## 🎯 Objetivo
+
+O projeto surgiu para resolver um problema real de um **parente próximo**, que possui uma loja de moda feminina e não contava com um sistema de controle de estoque, realizando o gerenciamento manualmente em papel.
+
+Com isso, o StockFashion proporciona:
+
+* 📦 Organização do estoque
+* ⚡ Agilidade no gerenciamento
+* 📊 Visualização clara dos dados
+* ✅ Redução de erros manuais
+
+---
+
+## 🖥️ Funcionalidades
+
+### 📊 Dashboard
+
+* Exibição de métricas e dados dos produtos cadastrados
+* Atualização automática conforme novos produtos são adicionados
+
+### 📦 Produtos
+
+* Listagem completa de produtos
+* Busca e filtros
+* Criação de novos produtos
+* Edição de produtos existentes
+* Exclusão de produtos
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+* **Next.js**
+* **TypeScript**
+* **MySQL**
+* **Prisma ORM**
+* **Tailwind CSS**
+* **Jest** (testes)
+
+---
+
+## ⚙️ Pré-requisitos
+
+Para rodar o projeto, é necessário ter instalado:
+
+* Node.js (versão 18 ou superior)
+* MySQL (rodando localmente)
+* Um gerenciador de banco (opcional, ex: MySQL Workbench)
+
+---
+
+## 📦 Instalação
 
 ### 1. Clone o repositório
 
-```bash
+```bash id="52yrh8"
 git clone https://github.com/LeonardoAtaides/estoque-moda-feminina.git
 cd estoque-moda-feminina
 ```
@@ -38,33 +76,33 @@ cd estoque-moda-feminina
 
 ### 2. Instale as dependências
 
-```bash
+```bash id="aeys1c"
 npm install
 ```
 
 ---
 
-### 3. Configurar o banco de dados
+### 3. Configuração do banco de dados
 
 Crie um banco no MySQL:
 
-```sql
-create database inventory;
+```sql id="9uoypm"
+create database estoque_mf;
 ```
 
-Depois, crie um arquivo `.env` na raiz do projeto:
+Crie um arquivo `.env` na raiz do projeto:
 
-```env
+```env id="izswj3"
 DATABASE_URL="mysql://root:SUA_SENHA@localhost:3306/NOME_DO_BANCO"
 ```
 
 ---
 
-### 4. Conectar e preparar o banco
+### 4. Setup do banco (Prisma)
 
-Execute os comandos:
+Execute:
 
-```bash
+```bash id="ey2htr"
 npx prisma migrate dev --name init
 npx prisma generate
 npx prisma db seed
@@ -73,30 +111,28 @@ npx prisma db seed
 Isso irá:
 
 * Criar as tabelas
-* Gerar o client do Prisma
-* Inserir dados iniciais (seed)
+* Gerar o Prisma Client
+* Inserir dados iniciais no banco
 
 ---
 
-## ▶️ Executar o projeto
+## ▶️ Executando o projeto
 
-```bash
+```bash id="bdz85p"
 npm run dev
 ```
 
-Acesse:
+Acesse no navegador:
 
-```
+```id="40qbtu"
 http://localhost:3000
 ```
-
-Após cadastrar produtos, o **Dashboard será automaticamente atualizado**.
 
 ---
 
 ## 🧪 Testes
 
-```bash
+```bash id="msaw5k"
 npm run test
 ```
 
@@ -104,30 +140,31 @@ npm run test
 
 ## 🧹 Lint
 
-```bash
+```bash id="y5rs4u"
 npm run lint
 ```
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 📁 Estrutura do Projeto
 
-* Next.js
-* TypeScript
-* MySQL
-* Tailwind CSS
-* Prisma ORM
-* Jest
+```id="23z1ls"
+src/
+ ├── app/api/products
+ ├── lib/prisma
+
+tests/
+```
 
 ---
 
 ## 🔮 Melhorias Futuras
 
-* Interface mais avançada
-* Pop-ups de confirmação
-* Responsividade para outros dispositivos
-* Upload de imagens nos produtos
-* Mais métricas no Dashboard
+* Interface mais avançada (UI/UX)
+* Sistema de notificações (pop-ups)
+* Responsividade para mobile
+* Upload de imagens para produtos
+* Dashboard com mais métricas e gráficos
 
 ---
 
@@ -139,4 +176,5 @@ npm run lint
 
 ## 👨‍💻 Autor
 
-Leonardo Ataídes
+Desenvolvido por **Leonardo Ataídes**
+
