@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { ProductsTable } from "./productstable"
 
 interface Size {
   id: string
@@ -48,6 +47,25 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
     categoryId: "",
   })
 
+  const resetForm = () => ({
+  name: "",
+  price: 0,
+  quantity: 0,
+  description: "",
+  isActive: true,
+  sizeId: "",
+  categoryId: "",
+});
+
+const createForm = (product?: Product | null) => ({
+  name: product?.name ?? "",
+  price: product?.price ?? 0,
+  quantity: product?.quantity ?? 0,
+  description: product?.description ?? "",
+  isActive: product?.isActive ?? true,
+  sizeId: product?.size?.id ?? "",
+  categoryId: product?.category?.id ?? "",
+});
 
   useEffect(() => {
     async function load() {
@@ -64,29 +82,11 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
   }, [])
 
 
-  useEffect(() => {
-    if (product) {
-      setForm({
-        name: product.name,
-        price: product.price,
-        quantity: product.quantity,
-        description: product.description || "",
-        isActive: product.isActive,
-        sizeId: product.size?.id || "",
-        categoryId: product.category?.id || "",
-      })
-    } else {
-      setForm({
-        name: "",
-        price: 0,
-        quantity: 0,
-        description: "",
-        isActive: true,
-        sizeId: "",
-        categoryId: "",
-      })
-    }
-  }, [product, open])
+useEffect(() => {
+  if (!open) return;
+
+  setForm(createForm(product));
+}, [open, product]);
 
 async function handleSubmit(e: React.FormEvent) {
   e.preventDefault()

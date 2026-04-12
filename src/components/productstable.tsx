@@ -38,6 +38,8 @@ export function ProductsTable({ search, category }: Props) {
     load()
   }, [])
 
+
+
   async function handleDelete(id: string) {
     await fetch("/api/products", {
       method: "DELETE",
@@ -53,7 +55,17 @@ export function ProductsTable({ search, category }: Props) {
   setModalOpen(true)
 }
 
-async function handleSave(form: any, id?: string) {
+type ProductForm = {
+  name: string
+  price: number
+  quantity: number
+  description: string
+  isActive: boolean
+  sizeId: string
+  categoryId: string
+}
+
+async function handleSave(form: ProductForm, id?: string) {
   if (id) {
     await fetch("/api/products", {
       method: "PUT",
@@ -88,7 +100,7 @@ async function handleSave(form: any, id?: string) {
 
   const filteredProducts = products.filter((p) => {
   const matchesSearch = p.name
-    ?.toLowerCase()
+    .toLowerCase()
     .includes(search.toLowerCase())
 
   const matchesCategory =

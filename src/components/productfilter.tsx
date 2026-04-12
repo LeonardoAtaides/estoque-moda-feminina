@@ -57,7 +57,7 @@ export function ProductsFilters({
       </div>
 
       {/* 📂 SELECT */}
-      <div className="flex gap-2">
+  <div className="flex gap-2">
         <select
           value={category}
           onChange={(e) => onCategoryChange(e.target.value)}
