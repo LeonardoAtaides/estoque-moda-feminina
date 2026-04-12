@@ -1,4 +1,4 @@
-// ⚠️ MOCK TEM QUE VIR PRIMEIRO
+
 jest.mock("@/lib/prisma", () => ({
   __esModule: true,
   default: {
@@ -14,7 +14,6 @@ import prisma from "@/lib/prisma";
 describe("POST /api/products", () => {
   it("deve criar um produto com sucesso", async () => {
 
-    // mock do retorno do banco
     (prisma.product.create as jest.Mock).mockResolvedValue({
       id: "1",
       name: "Blusa",
@@ -22,7 +21,6 @@ describe("POST /api/products", () => {
       quantity: 10,
     });
 
-    // simulando request
     const req = new Request("http://localhost", {
       method: "POST",
       body: JSON.stringify({
@@ -35,7 +33,6 @@ describe("POST /api/products", () => {
     const res = await POST(req);
     const data = await res.json();
 
-    // validações
     expect(res.status).toBe(201);
     expect(data.name).toBe("Blusa");
   });

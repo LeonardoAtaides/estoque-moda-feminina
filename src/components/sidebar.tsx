@@ -24,7 +24,6 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile menu button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 flex h-10 w-10 items-center justify-center rounded-md bg-background shadow lg:hidden"
@@ -32,7 +31,7 @@ export function Sidebar() {
         {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
 
-      {/* Overlay */}
+
       {isOpen && (
         <div
           className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm lg:hidden"
@@ -40,14 +39,12 @@ export function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={`fixed left-0 top-0 z-40 h-screen w-64 border-r bg-[#030303] border-[#212124] transition-transform lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex h-full flex-col">
-          {/* Logo */}
           <div className="flex h-16 items-center border-b px-6">
             <div className="flex items-center gap-3">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00cf85] ">
@@ -57,7 +54,6 @@ export function Sidebar() {
             </div>
           </div>
 
-          {/* Navigation */}
           <nav className="flex-1 space-y-1 p-4">
             {navItems.map((item) => {
               const isActive = pathname === item.href
@@ -79,8 +75,6 @@ export function Sidebar() {
               )
             })}
           </nav>
-
-
         </div>
       </aside>
     </>

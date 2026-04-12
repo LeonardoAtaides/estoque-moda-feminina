@@ -8,17 +8,14 @@ function HomeContent() {
   return (
     <MainLayout>
       <div className="space-y-8">
-        {/* Header */}
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground">
             Dashboard
           </h1>
         </div>
 
-        {/* Stats Cards */}
         <CardsValues />
 
-        {/* Table */}
           <CategoriesTable />
       </div>
     </MainLayout>
