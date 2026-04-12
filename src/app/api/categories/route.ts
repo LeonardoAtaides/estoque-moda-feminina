@@ -1,10 +1,9 @@
 import prisma from "@/lib/prisma";
 
-// GET /api/categories
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const categories = await prisma.category.findMany({
-      orderBy: { name: "asc" }, // ordena alfabeticamente
+      orderBy: { name: "asc" }, 
     });
 
     return new Response(JSON.stringify(categories), {

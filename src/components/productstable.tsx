@@ -25,6 +25,16 @@ interface Props {
   onEdit: (product: Product) => void
 }
 
+export type ProductForm = {
+  name: string
+  price: number
+  quantity: number
+  description: string | null
+  isActive: boolean
+  sizeId: string
+  categoryId: string
+}
+
 export function ProductsTable({
   products,
   loading,
@@ -48,7 +58,7 @@ export function ProductsTable({
     setModalOpen(true)
   }
 
-  async function handleSave(form: any, id?: string) {
+  async function handleSave(form: ProductForm, id?: string) {
     if (id) {
       await fetch("/api/products", {
         method: "PUT",

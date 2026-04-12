@@ -24,11 +24,21 @@ type Product = {
   category?: { id: string; name: string } | null
 }
 
+type ProductForm = {
+  name: string
+  price: number
+  quantity: number
+  description: string
+  isActive: boolean
+  sizeId: string
+  categoryId: string
+}
+
 interface Props {
   open: boolean
   onOpenChange: (open: boolean) => void
   product?: Product | null
-  onSave: (data: any, id?: string) => Promise<void>
+  onSave: (data: ProductForm, id?: string) => Promise<void>
 }
 
 export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
@@ -37,7 +47,7 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
   const [sizes, setSizes] = useState<Size[]>([])
   const [categories, setCategories] = useState<Category[]>([])
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ProductForm>({
     name: "",
     price: 0,
     quantity: 0,
@@ -47,15 +57,6 @@ export function ProductModal({ open, onOpenChange, product, onSave }: Props) {
     categoryId: "",
   })
 
-  const resetForm = () => ({
-  name: "",
-  price: 0,
-  quantity: 0,
-  description: "",
-  isActive: true,
-  sizeId: "",
-  categoryId: "",
-});
 
 const createForm = (product?: Product | null) => ({
   name: product?.name ?? "",

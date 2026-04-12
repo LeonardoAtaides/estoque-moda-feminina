@@ -34,7 +34,7 @@ export async function GET() {
       }),
       { status: 200 }
     )
-  } catch (error) {
+  } catch {
     return new Response(
       JSON.stringify({ error: "Erro ao buscar stats" }),
       { status: 500 }

@@ -19,7 +19,14 @@ export async function GET() {
       },
     })
 
-    const grouped = products.reduce((acc: any, product) => {
+
+  type CategoryStats = {
+    name: string
+    quantidade: number
+    produtos: number
+  }
+    const grouped = products.reduce<Record<string, CategoryStats>>(
+  (acc, product) => {
       const name = product.category?.name ?? "Sem categoria"
 
       if (!acc[name]) {

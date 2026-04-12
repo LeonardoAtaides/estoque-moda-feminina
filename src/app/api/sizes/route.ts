@@ -1,7 +1,6 @@
 import prisma from "@/lib/prisma";
 
-// GET /api/sizes
-export async function GET(req: Request) {
+export async function GET() {
   try {
     const sizes = await prisma.size.findMany({
       orderBy: { name: "asc" }, 

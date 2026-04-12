@@ -43,8 +43,17 @@ export default function ProductsPage() {
     fetchProducts()
   }, [])
 
-  // 🔥 CREATE
-  async function handleSave(data: any) {
+  type ProductForm = {
+  name: string
+  price: number
+  quantity: number
+  description?: string | null
+  isActive?: boolean
+  sizeId?: string
+  categoryId?: string
+}
+
+  async function handleSave(data: ProductForm) {
     await fetch("/api/products", {
       method: "POST",
       headers: {

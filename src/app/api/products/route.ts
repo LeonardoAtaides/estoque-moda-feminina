@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
     return new Response(JSON.stringify(product), { status: 201 });
 
-  } catch (error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Erro ao criar produto" }), { status: 500 });
   }
 }
@@ -71,7 +71,7 @@ export async function PUT(req: Request) {
 
     return new Response(JSON.stringify(product), { status: 200 });
 
-  } catch (error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Erro ao atualizar produto" }), { status: 500 });
   }
 }
@@ -90,7 +90,7 @@ export async function DELETE(req: Request) {
 
     return new Response(JSON.stringify({ message: "Produto deletado" }), { status: 200 });
 
-  } catch (error) {
+  } catch {
     return new Response(JSON.stringify({ error: "Erro ao deletar produto" }), { status: 500 });
   }
 }
