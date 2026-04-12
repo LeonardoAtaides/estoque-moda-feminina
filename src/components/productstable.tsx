@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { ProductModal } from "./productmodal"
+import { Pencil, Trash } from "lucide-react"
 
 type Product = {
   id: string
@@ -100,7 +101,7 @@ export function ProductsTable({
 
   return (
     <>
-      <div className="rounded-xl border border-zinc-800 bg-zinc-950">
+      <div className="rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden">
         <table className="w-full text-sm text-zinc-200">
 
           <thead className="border-b border-zinc-800 bg-zinc-900/40 text-left text-zinc-400">
@@ -174,20 +175,20 @@ export function ProductsTable({
                   </button>
 
                   {openMenu === product.id && (
-                    <div className="absolute right-3 top-10 w-32 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg z-10">
+                    <div className="absolute right-12 top-[5px] w-24 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg z-10 flex justify-between items-center">
 
                       <button
                         onClick={() => handleEdit(product)}
-                        className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800"
+                        className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800 flex justify-center"
                       >
-                        Editar
+                        <Pencil className="w-5 w-5"/>
                       </button>
 
                       <button
                         onClick={() => handleDelete(product.id)}
-                        className="w-full px-3 py-2 text-left text-sm text-red-400 hover:bg-zinc-800"
+                        className="w-full px-3 py-2 text-left text-sm text-red-400 hover:bg-zinc-800 flex justify-center"
                       >
-                        Excluir
+                        <Trash className="w-5 w-5"/>
                       </button>
 
                     </div>
