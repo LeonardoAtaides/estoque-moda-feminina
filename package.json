@@ -1,8 +1,13 @@
+
 {
   "name": "estoquemodafeminina",
   "version": "v1.0.1",
   "private": true,
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
     "test": "jest"
   },
   "dependencies": {
@@ -37,3 +42,4 @@
     "seed": "tsx prisma/seed.ts"
   }
 }
+
