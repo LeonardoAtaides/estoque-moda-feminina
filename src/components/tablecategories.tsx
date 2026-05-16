@@ -77,21 +77,6 @@ export function CategoriesTable() {
           </BarChart>
         </ResponsiveContainer>
       </div>
-
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold">
-          Tendências do Mercado
-        </h2>
-        <p className="text-sm text-gray-500">
-          Novidades e tendências de moda para o próximo semestre
-        </p>
-      </div>     
-
-      <div className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4">
-              api
-      </div>
-
-      
     </div>
   )
 }
