@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useEffect, useState } from "react"
 import {
   BarChart,
@@ -9,6 +10,19 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts"
+
+import {Star} from "lucide-react"
+
+interface TrendProduct {
+  id: number
+  title: string
+  price: number
+  rating: number
+  thumbnail: string
+  category: string
+}
+
+
 
 interface CategoryData {
   name: string
@@ -28,18 +42,27 @@ const categoryColors: Record<string, string> = {
 export function CategoriesTable() {
   const [data, setData] = useState<CategoryData[]>([])
   const [loading, setLoading] = useState(true)
+  const [trends, setTrends] = useState<TrendProduct[]>([])
 
-  useEffect(() => {
-    async function load() {
-      const res = await fetch("/api/categories/stats")
-      const json = await res.json()
+useEffect(() => {
+  async function load() {
+    const res = await fetch("/api/categories/stats")
+    const json = await res.json()
 
-      setData(json)
-      setLoading(false)
-    }
+    setData(json)
+  }
 
-    load()
-  }, [])
+  async function loadTrends() {
+    const res = await fetch("/api/trends")
+    const json = await res.json()
+
+    setTrends(json)
+  }
+
+  Promise.all([load(), loadTrends()])
+    .finally(() => setLoading(false))
+
+}, [])
 
   if (loading) {
     return (
@@ -87,8 +110,38 @@ export function CategoriesTable() {
         </p>
       </div>     
 
-      <div className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4">
-              api
+      <div className="grid gap-4 md:grid-cols-3">
+        {trends.map((product) => (
+          <div
+            key={product.id}
+            className="rounded-lg border border-[#28292b] bg-[#18181b] p-3"
+          >
+            <img
+              src={product.thumbnail}
+              alt={product.title}
+              className="mb-3 h-40 w-full rounded-md object-cover"
+            />
+
+            <h3 className="line-clamp-1 font-medium">
+              {product.title}
+            </h3>
+
+            <p className="mt-1 text-sm text-gray-400">
+              {product.category}
+            </p>
+
+            <div className="mt-3 flex items-center justify-between">
+              <span className="text-sm flex items-center gap-2 text-yellow-400">
+                <Star className="inline-block h-4 w-4 fill-current" />
+                {product.rating}
+              </span>
+
+              <span className="font-semibold text-emerald-400">
+                R$ {product.price}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
 
       
