@@ -11,6 +11,7 @@ import {
 } from "recharts"
 
 import { Star } from "lucide-react"
+import Image from "next/image"
 
 interface TrendProduct {
   id: number
@@ -148,7 +149,9 @@ export function CategoriesTable() {
             key={product.id}
             className="rounded-lg border border-[#28292b] bg-[#18181b] p-3"
           >
-            <img
+            <Image
+              width={400}
+              height={400}
               src={product.thumbnail}
               alt={product.title}
               className="mb-3 h-48 w-full rounded-md object-contain"
