@@ -1,7 +1,7 @@
 # 🛍️ StockFashion
 
 > Sistema de gerenciamento de estoque para moda feminina, focado em praticidade, organização e controle eficiente.
-
+Link do Deploy: https://estoque-moda-feminina.vercel.app
 ---
 
 ## 📖 Sobre o Projeto
@@ -9,6 +9,10 @@
 O **StockFashion** é uma aplicação web (desktop) desenvolvida com **Next.js**, **TypeScript** e **MySQL**, que permite gerenciar produtos de forma completa através de operações de **CRUD** (criar, visualizar, atualizar e deletar).
 
 A aplicação foi pensada para ser **simples, intuitiva e funcional**, atendendo pequenas lojas que precisam de um controle eficiente sem complexidade.
+
+## Integração com API Pública
+
+O sistema consome dados da API pública DummyJSON para simular tendências do mercado da moda feminina. Os produtos são carregados dinamicamente e utilizados para representar novidades, itens em destaque e possíveis tendências do próximo semestre.
 
 ---
 
@@ -53,7 +57,7 @@ Com isso, o StockFashion proporciona:
 
 ---
 
-## ⚙️ Pré-requisitos
+## ⚙️ Pré-requisitos para rodar Localmente
 
 Para rodar o projeto, é necessário ter instalado:
 
