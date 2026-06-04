@@ -32,7 +32,7 @@ export function Sidebar() {
 
   return (
     <aside
-      className={`h-screen border-r border-[#212124] bg-[#030303] transition-all duration-300 ${
+      className={` border-r border-[#212124] bg-[#030303] transition-all duration-300 ${
         collapsed ? "w-28" : "w-64"
       }`}
     >
