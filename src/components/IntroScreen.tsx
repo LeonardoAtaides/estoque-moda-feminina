@@ -46,7 +46,7 @@ export function IntroScreen() {
   if (!visible) return null;
 
   return (
-    <div className="intro-overlay fixed inset-0 z-[9999] flex items-center justify-center bg-zinc-950">
+    <div className="intro-overlay fixed inset-0 z-50 flex items-center justify-center bg-zinc-950">
       <div className="intro-content flex flex-col items-center gap-5">
         {/* Logo */}
         <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-green-400/30 bg-green-400/10 backdrop-blur-sm">
