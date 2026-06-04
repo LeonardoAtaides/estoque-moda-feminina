@@ -1,19 +1,17 @@
 "use client"
 
 import { Sidebar } from "@/components/sidebar"
-import { IntroScreen } from "@/components/IntroScreen";
+
 interface MainLayoutProps {
   children: React.ReactNode
 }
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
-    <>
-            <IntroScreen />
     <div className="min-h-screen bg-background flex">
       <Sidebar />
 
-      <main className="flex flex-col flex-1">
+      <main className="flex flex-col flex-1 lg:pl-64">
 
         <div className="flex-1 p-4 pt-16 lg:p-8 lg:pt-8">
           {children}
@@ -26,6 +24,5 @@ export function MainLayout({ children }: MainLayoutProps) {
         </footer>
       </main>
     </div>
-    </>
   )
 }
