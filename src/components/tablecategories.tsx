@@ -79,12 +79,12 @@ export function CategoriesTable() {
     if (!trends.length) return
 
     const interval = setInterval(() => {
-      setFade(false) 
+      setFade(false)
 
       setTimeout(() => {
         setPage((p) => (p === totalPages - 1 ? 0 : p + 1))
         setFade(true)
-      }, 400) 
+      }, 400)
     }, INTERVAL_TIME)
 
     return () => clearInterval(interval)
@@ -92,12 +92,12 @@ export function CategoriesTable() {
 
   if (loading) {
     return (
-      <div className="h-[300px] animate-pulse rounded-lg bg-[#0f0f12]" />
+      <div className="h-[300px] animate-pulse rounded-lg bg-slate-100 dark:bg-[#0f0f12]" />
     )
   }
 
   return (
-    <div className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4">
+    <div className="rounded-lg border border-slate-200 dark:border-[#28292b] bg-white dark:bg-[#0f0f12] p-4">
       {/* CHART */}
       <div className="mb-4">
         <h2 className="text-lg font-semibold">
@@ -147,7 +147,7 @@ export function CategoriesTable() {
         {visibleTrends.map((product) => (
           <div
             key={product.id}
-            className="rounded-lg border border-[#28292b] bg-[#18181b] p-3"
+            className="rounded-lg border border-slate-200 dark:border-[#28292b] bg-slate-50 dark:bg-[#18181b] p-3"
           >
             <Image
               width={400}
@@ -161,17 +161,17 @@ export function CategoriesTable() {
               {product.title}
             </h3>
 
-            <p className="mt-1 text-sm text-gray-400">
+            <p className="mt-1 text-sm text-slate-500 dark:text-gray-400">
               {product.category}
             </p>
 
             <div className="mt-3 flex items-center justify-between">
-              <span className="flex items-center gap-2 text-sm text-yellow-400">
+              <span className="flex items-center gap-2 text-sm text-yellow-500 dark:text-yellow-400">
                 <Star className="h-4 w-4 fill-current" />
                 {product.rating}
               </span>
 
-              <span className="font-semibold text-emerald-400">
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
                 R$ {product.price}
               </span>
             </div>

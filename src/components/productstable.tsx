@@ -77,7 +77,7 @@ export function ProductsTable({
     const res = await fetch("/api/products")
     const data = await res.json()
 
-    setLocalProducts(data) 
+    setLocalProducts(data)
     setModalOpen(false)
     setSelectedProduct(null)
   }
@@ -99,7 +99,7 @@ export function ProductsTable({
   })
 
   if (loading) {
-    return <div className="h-40 animate-pulse rounded-lg bg-zinc-900" />
+    return <div className="h-40 animate-pulse rounded-lg bg-slate-100 dark:bg-zinc-900" />
   }
 
   const formatDate = (date: string) =>
@@ -111,10 +111,10 @@ export function ProductsTable({
 
   return (
     <>
-      <div className="rounded-xl border border-zinc-800 bg-zinc-950 overflow-hidden">
-        <table className="w-full text-sm text-zinc-200">
+      <div className="rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden">
+        <table className="w-full text-sm text-slate-700 dark:text-zinc-200">
 
-          <thead className="border-b border-zinc-800 bg-zinc-900/40 text-left text-zinc-400">
+          <thead className="border-b border-slate-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-900/40 text-left text-slate-500 dark:text-zinc-400">
             <tr>
               <th className="p-3">Nome</th>
               <th className="p-3">Tamanho</th>
@@ -132,21 +132,21 @@ export function ProductsTable({
             {filteredProducts.map((product) => (
               <tr
                 key={product.id}
-                className="border-b border-zinc-800 hover:bg-zinc-900/40 transition"
+                className="border-b border-slate-100 dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/40 transition"
               >
-                <td className="p-3 font-medium text-white">{product.name}</td>
+                <td className="p-3 font-medium text-slate-900 dark:text-white">{product.name}</td>
 
                 <td className="p-3">
-                  <span className="rounded-md border border-zinc-700 px-2 py-0.5 text-xs text-zinc-300">
+                  <span className="rounded-md border border-slate-300 dark:border-zinc-700 px-2 py-0.5 text-xs text-slate-600 dark:text-zinc-300">
                     {product.size?.name ?? "-"}
                   </span>
                 </td>
 
-                <td className="p-3 text-zinc-400">
+                <td className="p-3 text-slate-500 dark:text-zinc-400">
                   {product.category?.name ?? "Sem categoria"}
                 </td>
 
-                <td className="p-3 font-semibold text-white">
+                <td className="p-3 font-semibold text-slate-900 dark:text-white">
                   {product.quantity}
                 </td>
 
@@ -156,21 +156,21 @@ export function ProductsTable({
 
                 <td className="p-3">
                   {product.isActive ? (
-                    <span className="rounded-full bg-emerald-500/20 px-2 py-1 text-xs text-emerald-400">
+                    <span className="rounded-full bg-emerald-50 dark:bg-emerald-500/20 px-2 py-1 text-xs text-emerald-700 dark:text-emerald-400">
                       Ativo
                     </span>
                   ) : (
-                    <span className="rounded-full bg-red-500/20 px-2 py-1 text-xs text-zinc-300">
+                    <span className="rounded-full bg-red-50 dark:bg-red-500/20 px-2 py-1 text-xs text-red-700 dark:text-zinc-300">
                       Inativo
                     </span>
                   )}
                 </td>
 
-                <td className="p-3 text-zinc-400">
+                <td className="p-3 text-slate-500 dark:text-zinc-400">
                   {formatDate(product.createdAt)}
                 </td>
 
-                <td className="p-3 text-zinc-400">
+                <td className="p-3 text-slate-500 dark:text-zinc-400">
                   R$ {product.price}
                 </td>
 
@@ -179,24 +179,24 @@ export function ProductsTable({
                     onClick={() =>
                       setOpenMenu(openMenu === product.id ? null : product.id)
                     }
-                    className="rounded-md px-2 py-1 hover:bg-zinc-800"
+                    className="rounded-md px-2 py-1 hover:bg-slate-100 dark:hover:bg-zinc-800"
                   >
                     ⋯
                   </button>
 
                   {openMenu === product.id && (
-                    <div className="absolute right-12 top-[5px] w-24 rounded-md border border-zinc-800 bg-zinc-900 shadow-lg z-10 flex justify-between items-center">
+                    <div className="absolute right-12 top-[5px] w-24 rounded-md border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-lg z-10 flex justify-between items-center">
 
                       <button
                         onClick={() => handleEdit(product)}
-                        className="w-full px-3 py-2 text-left text-sm hover:bg-zinc-800 flex justify-center"
+                        className="w-full px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-zinc-800 flex justify-center"
                       >
                         <Pencil className="w-5 w-5"/>
                       </button>
 
                       <button
                         onClick={() => handleDelete(product.id)}
-                        className="w-full px-3 py-2 text-left text-sm text-red-400 hover:bg-zinc-800 flex justify-center"
+                        className="w-full px-3 py-2 text-left text-sm text-red-500 dark:text-red-400 hover:bg-slate-100 dark:hover:bg-zinc-800 flex justify-center"
                       >
                         <Trash className="w-5 w-5"/>
                       </button>

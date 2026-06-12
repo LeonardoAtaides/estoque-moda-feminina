@@ -137,7 +137,7 @@ function handleExportPDF() {
           <button
           onClick={handleExportPDF}
             
-            className="flex items-center gap-2 border border-[#00cf85] text-white px-4 py-2 rounded-md hover:opacity-90 transition cursor-pointer"
+            className="flex items-center gap-2 border border-[#00cf85] text-slate-900 dark:text-white px-4 py-2 rounded-md hover:opacity-90 transition cursor-pointer"
           >
             <FolderUp className="h-4 w-4" />
             Exportar PDF

@@ -122,14 +122,14 @@ export function CardsValues() {
       {cards.map((card) => (
         <div
           key={card.title}
-          className="rounded-lg border border-[#28292b] bg-[#0f0f12] p-4 shadow-sm"
+          className="rounded-lg border border-slate-200 dark:border-[#28292b] bg-white dark:bg-[#0f0f12] p-4 shadow-sm"
         >
           <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-300">{card.title}</span>
+            <span className="text-sm text-slate-500 dark:text-gray-300">{card.title}</span>
             <card.icon className="h-4 w-4 text-[#00cf85]" />
           </div>
 
-          <div className="mt-3 text-2xl font-bold text-white">
+          <div className="mt-3 text-2xl font-bold text-slate-900 dark:text-white">
             {card.type === "money" ? (
               <CounterMoney value={card.value} />
             ) : (
@@ -137,7 +137,7 @@ export function CardsValues() {
             )}
           </div>
 
-          <p className="mt-1 text-xs text-gray-300">
+          <p className="mt-1 text-xs text-slate-500 dark:text-gray-300">
             {card.desc}
           </p>
         </div>
