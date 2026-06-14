@@ -183,9 +183,10 @@ tests/
 ---
 
 ## 👨‍💻 Autores
-**Leonardo Ataídes dos Santos** RA: 22604332
-**João Gabriel Souto** RA: 22552119
-**Pabllo Batista Morais da Costa** RA: 22510053
+
+- **Leonardo Ataídes dos Santos** — RA: 22604332
+- **João Gabriel Souto** — RA: 22552119
+- **Pabllo Batista Morais da Costa** — RA: 22510053
 
 ---
 
