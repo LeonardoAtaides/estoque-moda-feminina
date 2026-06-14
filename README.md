@@ -14,6 +14,10 @@ A aplicação foi pensada para ser **simples, intuitiva e funcional**, atendendo
 
 O sistema consome dados da API pública DummyJSON para simular tendências do mercado da moda feminina. Os produtos são carregados dinamicamente e utilizados para representar novidades, itens em destaque e possíveis tendências do próximo semestre.
 
+## Hospedagem
+
+O banco de dados está hospedado na plataforma da Hostgator, Back-end e Front-end estão na plataforma da Versel
+
 ---
 
 ## 🎯 Objetivo
@@ -178,9 +182,10 @@ tests/
 
 ---
 
-## 👨‍💻 Autor
-
-Desenvolvido por **Leonardo Ataídes**
+## 👨‍💻 Autores
+**Leonardo Ataídes dos Santos** RA: 22604332
+**João Gabriel Souto** RA: 22552119
+**Pabllo Batista Morais da Costa** RA: 22510053
 
 ---
 
