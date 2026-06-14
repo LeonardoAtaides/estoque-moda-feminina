@@ -16,7 +16,7 @@ O sistema consome dados da API pública DummyJSON para simular tendências do me
 
 ## Hospedagem
 
-O banco de dados está hospedado na plataforma da Hostgator, Back-end e Front-end estando na plataforma da Versel
+O banco de dados está hospedado na plataforma da Hostgator, Back-end e Front-end estão na plataforma da Versel
 
 ---
 
